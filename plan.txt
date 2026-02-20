@@ -1,0 +1,19 @@
+So the plan is to fine tune the deepseek ocr 2 model on the hotel invoice data.
+And for that we are following the tasks given by gemini below : 
+Phase 1 - #33341575
+Implement Unsupervised Template Clustering: Develop a pHash-based clustering algorithm to deduplicate 1,000+ raw PDFs into unique layout archetypes. - #33341498
+Generate Weak Supervision Labels (Distillation): Execute a knowledge distillation pipeline using Gemini 1.5 Flash to generate initial \"Silver\" annotations (JSON schema enforcement). - #33341499
+Establish Ground Truth (HITL Verification): Perform Human-in-the-Loop (HITL) validation on \"Silver\" labels to create a certified \"Golden\" training dataset. - #33341502
+Normalize & Serialize Training Data: Pre-process and tokenize the \"Golden\" dataset into ChatML/JSONL format for SFT compatibility. - #33341509
+Phase 2 - #33341541
+Provision QLoRA Training Environment: Configure the local training stack with Unsloth, bitsandbytes (4-bit quantization), and ROCm-compatible PyTorch. - #33341535
+Validate Gradient Convergence (Dry Run): Execute a single-epoch pilot run to verify loss curve stability and memory paging efficiency. - #33341593
+Execute DeepSeek-OCR-2 SFT: Perform full Supervised Fine-Tuning on the 3B parameter model using LoRA adapters (Rank=16, Alpha=32). - #33341599
+Compute Validation Metrics: Evaluate model checkpoints against the held-out test set using Tree Edit Distance (TED) and Levenshtein Distance metrics. - #33341606
+Phase 3 - #33341635
+Model Serialization & Quantization: Merge LoRA adapters into the base model and export weights to GGUF format (Q4_K_M quantization). - #33341651
+Develop Inference Microservice: Architect a low-latency FastAPI wrapper around the model engine (leveraging vLLM or Ollama for continuous batching). - #33341657
+End-to-End Integration & Benchmarking: Integrate the local inference endpoint with the production pipeline and benchmark latency/throughput against legacy API baselines. - #33341658
+
+
+

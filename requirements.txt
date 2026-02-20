@@ -1,0 +1,6 @@
+boto3
+pdf2image
+imagehash
+tqdm
+python-dotenv
+Pillow

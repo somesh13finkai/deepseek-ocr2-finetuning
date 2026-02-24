@@ -4,3 +4,6 @@ imagehash
 tqdm
 python-dotenv
 Pillow
+google-cloud-aiplatform
+vertexai
+tenacity

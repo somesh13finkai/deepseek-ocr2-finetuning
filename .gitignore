@@ -109,5 +109,8 @@ venv.bak/
 # Project specific
 templates/
 stuff/
+silver_labels/
+credentials.json
 invoice.png
+failed_extractions.log
 *.log
